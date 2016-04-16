@@ -64,6 +64,19 @@ Template.dashboard.events({
     console.log("User has logged off");
     Router.go('/');
   },
+  'submit': function(event) {
+    // Prevent default browser form submit
+    event.preventDefault();
+
+    var firstName = document.getElementById('firstName').value,
+    lastName = document.getElementById('lastName').value,
+    phoneNumber = document.getElementById('phoneNumber').value,
+    address = document.getElementById('address').value,
+    zipCode =  document.getElementById('zipCode').value,
+    cityState = document.getElementById('cityState').value;
+
+
+  },
 });
 
 if(Meteor.isClient){
@@ -76,9 +89,13 @@ if(Meteor.isServer){
 
 // Routes
 Router.route('/', {
-  template: 'login'
+  template: 'login',
 });
 
-Router.route('/register');
+Router.route('/register', {
+  template: 'register',
+});
 
-Router.route('/dashboard');
+Router.route('/dashboard', {
+  template: 'dashboard',
+});
