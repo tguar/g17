@@ -1,0 +1,24 @@
+<template name="login">
+  <div class="container">
+    <h2>Login</h2>
+    {{#if currentUser}}
+    <h4>You are already logged in</h4>
+    <p>
+      Click here to return to the <a href="/dashboard" class="dashboard">dashboard</a>
+    </p>
+    {{else}}
+    <form>
+      <div class="form-group">
+        <label for="inputEmail">Email address</label>
+        <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+      </div>
+      <div class="form-group">
+        <label for="inputPassword">Password</label>
+        <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+      </div>
+      <button type="submit" class="btn btn-default">Login</button>
+      <a class="btn btn-primary btn-xs" href="register" role="button">Register</a>
+    </form>
+    {{/if}}
+  </div>
+</template>

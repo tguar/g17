@@ -1,0 +1,78 @@
+Cars.attachSchema(new SimpleSchema({
+  userName: ({
+    first: {
+      type: String,
+      label: "First Name"
+    },
+    middleInitial: {
+      type: String,
+      label: "Model",
+      max: 1,
+      optional: true
+    },
+    last: {
+      type: String,
+      label: "Last Name"
+    },
+    nickName: {
+      type: String,
+      label: "Nick Name",
+      optional: true
+    }
+  }),
+  bloodType: {
+    type: String,
+    label: "Blood Type",
+    allowedValues: ['A+', 'A-', 'B+','B-', 'AB+', 'AB-', 'O+', 'O-']
+  },
+  phoneOne: {
+    type: Number,
+    label: "Phone 1",
+    max: 9999999999
+  },
+  phoneTwo: {
+    type: Number,
+    label: "Phone 2",
+    max: 9999999999,
+    optional: true
+  },
+  addressLineOne: {
+    type: String,
+    label: "Address Line 1"
+  },
+  addressLineTwo: {
+    type: String,
+    label: "Address Line 2",
+    optional: true
+  },
+  city: {
+    type: String,
+    label: "City"
+  },
+  state: {
+    type: String,
+    label: "state"
+  },
+  zipCode: {
+    type: Number,
+    label: "Zip Code",
+    max: 99999
+  },
+  weight: {
+    type: Number,
+    label: "Weight (in pounds)",
+    max: 999
+  },
+  height: {
+    type: Number,
+    label: "Height (in inches)",
+    max: 100
+  },
+  birthDate: {
+    type: Date,
+    label: "MM/DD/YYYY"
+  },
+  age: {
+    type: Boolean,
+    label: "Age"
+  }
