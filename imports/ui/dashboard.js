@@ -3,6 +3,15 @@ import { PublicProfileDB } from '../api/mongo.js';
 
 import './dashboard.html';
 
+Template.dashboard.helpers({
+  formData:function(){
+    var id = Meteor.userId();
+    var db = PublicProfileDB.findOne({profileId: id});
+    console.log(db);
+    return PublicProfileDB.findOne({profileId: id});
+  }
+})
+
 Template.dashboard.events({
   'click .logout': function(event) {
     // Prevent default browser form submit
@@ -16,26 +25,69 @@ Template.dashboard.events({
     // Prevent default browser form submit
     event.preventDefault();
 
-    var firstName = document.getElementById('firstName').value,
-    middleName = document.getElementById('middleName').value,
-    lastName = document.getElementById('lastName').value,
-    nickName = document.getElementById('nickName').value,
-    phoneNumber1 = document.getElementById('phoneNumber1').value,
-    phoneNumber2 = document.getElementById('phoneNumber2').value,
-    address1 = document.getElementById('address1').value,
-    address2 = document.getElementById('address2').value,
-    zipCode =  document.getElementById('zipCode').value,
-    cityState = document.getElementById('cityState').value,
+    var firstName = document.getElementById('yourFirstName').value,
+    middleName = document.getElementById('yourMiddleName').value,
+    lastName = document.getElementById('yourLastName').value,
+    nickName = document.getElementById('yourNickName').value,
+    phoneNumber1 = document.getElementById('emergencyPhoneNumber1').value,
+    phoneNumber2 = document.getElementById('emergencyPhoneNumber2').value,
+    address1 = document.getElementById('yourAddressLine1').value,
+    address2 = document.getElementById('yourAddressLine2').value,
+    zipCode =  document.getElementById('yourZipCode').value,
+    city = document.getElementById('yourAddressCity').value,
+    state = document.getElementById('yourAddressState').value,
     bloodType = document.getElementById('bloodType').value,
-    nickName = document.getElementById('nickName').value,
     weight = document.getElementById('weight').value,
-    dob = document.getElementById('dob').value;
+    dob = document.getElementById('dob').value,
+    emergencyFirstName1 = document.getElementById('emergencyFirstName1').value,
+    emergencyLastName1 = document.getElementById('emergencyLastName1').value,
+    emergencyPhoneNumber1 = document.getElementById('emergencyPhoneNumber1').value,
+    emergencyRelation1 = document.getElementById('emergencyRelation1').value,
+    emergencyFirstName2 = document.getElementById('emergencyFirstName2').value,
+    emergencyLastName2 = document.getElementById('emergencyLastName2').value,
+    emergencyPhoneNumber2 = document.getElementById('emergencyPhoneNumber2').value,
+    emergencyRelation2 = document.getElementById('emergencyRelation2').value;
 
-    // PublicProfileDB.insert({
-    //   name: firstName,
-    // });
-  },
+
+    var userId = Meteor.userId();
+    PublicProfileDB.find( {profileId: userId} );
+    PublicProfileDB.insert({
+      profileId: userId,
+      name: {
+        first: firstName,
+        middle: middleName,
+        last: lastName,
+        nickname: nickName
+      },
+      phoneNumber: {
+        number1: phoneNumber1,
+        number2: phoneNumber2
+      },
+      address: {
+        addressLine1: address1,
+        addressLine2: address2,
+        city: city,
+        state: state,
+        zipCode: zipCode
+      },
+      bloodType: bloodType,
+      height: height,
+      weight: weight,
+      dateOfBirth: dob,
+      emergencyContact1: {
+        first: emergencyFirstName1,
+        last: emergencyLastName1,
+        number: emergencyPhoneNumber1,
+        relation: emergencyRelation1
+      },
+      emergencyContact2: {
+        first: emergencyFirstName2,
+        last: emergencyLastName2,
+        number: emergencyPhoneNumber2,
+        relation: emergencyRelation2
+      }
+    });
+
+    console.alert("Your profile has been updated");
+  }
 });
-
-// var fetch = PublicProfileDB.find().fetch();
-// console.log(fetch);
