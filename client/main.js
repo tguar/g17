@@ -3,8 +3,13 @@ import { ReactiveVar } from 'meteor/reactive-var';
 
 import './main.html';
 import '../imports/ui/login.js';
+import '../imports/ui/emailz.js';
 import '../imports/ui/register.js';
 import '../imports/ui/dashboard.js';
+
+
+
+
 
 
 // Template.hello.onCreated();
@@ -22,6 +27,10 @@ if(Meteor.isServer){
 // Routes
 Router.route('/', {
   template: 'login',
+});
+
+Router.route('/users/:email', 'emailz', {
+  template: 'emailz',
 });
 
 Router.route('/register', {

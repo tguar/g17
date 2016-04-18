@@ -15,8 +15,26 @@ Template.login.events({
         console.log(error.reason);
       }
       else {
-        Router.go('/dashboard');
+        Router.go(Meteor.absoluteUrl()+ 'users/' + email);
       }
     });
   },
 });
+
+
+
+
+
+
+
+// Template.item.helpers({
+//     profileUrl: function() {
+//         var user = Meteor.users.findOne(this.userId, {reactive:false});
+//         if(user)
+//             return getProfileUrlById(user);
+//     }
+//  });
+//
+// getProfileUrlById = function(id) {
+//     return Meteor.absoluteUrl()+'users/' + id;
+// }

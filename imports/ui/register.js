@@ -7,6 +7,7 @@ Template.register.events({
     // Prevent default browser form submit
     event.preventDefault();
 
+    var name = document.getElementById('registerName').value
     var email = document.getElementById('registerEmail').value
     var password = document.getElementById('registerPassword').value;
     var password2 = document.getElementById('registerPassword2').value;
@@ -16,6 +17,7 @@ Template.register.events({
     }
     else {
       Accounts.createUser({
+        name: name,
         email: email,
         password: password,
       }, function(error) {
@@ -24,7 +26,7 @@ Template.register.events({
         }
         else {
           console.log("Account successfully created");
-          Router.go('/dashboard');
+          Router.go(Meteor.absoluteUrl()+ 'users/' + email);
         }
       });
     }
