@@ -6,46 +6,125 @@
     {{/if}}
     <form>
       <div class="form-group">
-        <label for="firstName">First Name: FirstName</label>
+        <div class="row">
+          <div class="col-sm-3">
+            <label>First Name: {{userObject.name.first}}</label>
+          </div>
+          <div class="col-sm-3">
+            <label>Middle Name: {{userObject.name.middle}}</label>
+          </div>
+          <div class="col-sm-3">
+            <label>Last Name: {{userObject.name.last}}</label>
+          </div>
+          <div class="col-sm-3">
+            <label>Nickname: {{userObject.name.nickname}}</label>
+          </div>
+        </div>
       </div>
       <div class="form-group">
-        <label for="middleName">Middle Initial: MiddleName</label>
+        <div class="row">
+          <div class="col-sm-3">
+            <label>Address Line 1: {{userObject.address.addressLine1}}</label>
+          </div>
+          <div class="col-sm-2">
+            <label>Address Line 2 {{userObject.address.addressLine2}}</label>
+          </div>
+          <div class="col-sm-3">
+            <label>City: {{userObject.address.city}}</label>
+          </div>
+          <div class="col-sm-2">
+            <label>State: {{userObject.address.state}}</label>
+          </div>
+          <div class="col-sm-2">
+            <label>Zip Code: {{userObject.address.zipCode}}</label>
+          </div>
+        </div>
       </div>
       <div class="form-group">
-        <label for="lastName">Last Name: LastName</label>
+        <div class="row">
+          <div class="col-sm-4">
+            <label>Blood Type: {{userObject.bloodType}}</label>
+          </div>
+          <div class="col-sm-4">
+            <label>Height (inches): {{userObject.height}}</label>
+          </div>
+          <div class="col-sm-4">
+            <label>Weight (lbs): {{userObject.weight}}</label>
+          </div>
+        </div>
       </div>
       <div class="form-group">
-        <label for="nickName">Nickname: NickName</label>
+        <div class="row">
+          <div class="col-sm-4">
+            <label>Date of Birth: {{userObject.dateOfBirth}}</label>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="form-group">
+        <div class="col-sm-6" >
+          <label for="allergies">Allergies</label><br>
+          <label for="latex">Latex: {{userObject.allergies.latex}}</label><br>
+          <label for="nut">Nut: {{userObject.allergies.nut}}</label><br>
+          <label for="milk">Milk: {{userObject.allergies.milk}}</label><br>
+          <label for="egg">Egg: {{userObject.allergies.egg}}</label><br>
+          <label for="other">Other: {{userObject.allergies.otherAllergies}}</label><br>
+        </div>
       </div>
       <div class="form-group">
-        <label for="bloodType">Blood Type: O+</label>
+        <div class="col-sm-6" >
+          <label for="allergies">Other Conditions</label><br>
+          <label for="latex">Astma: {{userObject.otherConditions.asthma}}</label><br>
+          <label for="nut">Diabetes: {{userObject.otherConditions.diabetes}}</label><br>
+          <label for="milk">Epilepsy: {{userObject.otherConditions.epilepsy}}</label><br>
+          <label for="egg">Heart Conditions: {{userObject.otherConditions.heartConditions}}</label><br>
+          <label for="other">Other: {{userObject.otherConditions.otherConditions}}</label><br>
+        </div>
+      </div>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <hr>
+      <div class="form-group">
+        <label>Emergency Contact #1</label><br>
+        <div class="row">
+          <div class="col-sm-3">
+            <label>First Name: {{userObject.emergencyContact1.first}}</label>
+          </div>
+          <div class="col-sm-3">
+            <label>Last Name: {{userObject.emergencyContact1.last}}</label>
+          </div>
+          <div class="col-sm-3">
+            <label>Phone Number: {{userObject.emergencyContact1.number}}</label>
+          </div>
+          <div class="col-sm-3">
+            <label>Relation: {{userObject.emergencyContact1.relation}}</label>
+          </div>
+        </div>
       </div>
       <div class="form-group">
-        <label for="phoneNumber1">Emergency Contact Phone Number 1: (904) 867-5309</label>
+        <label>Emergency Contact #2</label><br>
+        <div class="row">
+          <div class="col-sm-3">
+            <label>First Name: {{userObject.emergencyContact2.first}}</label>
+          </div>
+          <div class="col-sm-3">
+            <label>Last Name: {{userObject.emergencyContact2.last}}</label>
+          </div>
+          <div class="col-sm-3">
+            <label>Phone Number: {{userObject.emergencyContact2.number}}</label>
+          </div>
+          <div class="col-sm-3">
+            <label>Relation: {{userObject.emergencyContact2.relation}}</label>
+          </div>
+        </div>
       </div>
-      <div class="form-group">
-        <label for="phoneNumber2">Emergency Contact Phone Number 2: (904) 555-5555</label>
-      </div>
-      <div class="form-group">
-        <label for="address1">Street Address Line 1: Here</label>
-      </div>
-      <div class="form-group">
-        <label for="address2">Street Address Line 2: There</label>
-      </div>
-      <div class="form-group">
-        <label for="cityState">City, State: Gainesville, FL</label>
-      </div>
-      <div class="form-group">
-        <label for="zipCode">Zip Code: 32602</label>
-      </div>
-      <div class="form-group">
-        <label for="weight">Weight: Fatty</label>
-      </div>
-      <div class="form-group">
-        <label for="dob">Date of Birth: 04/16/16</label>
-      </div>
-      <button type="submit" class="btn btn-primary btn-block">Edit</button>
-
+      <br>
+      <br>
     </form>
   </div>
 </template>
