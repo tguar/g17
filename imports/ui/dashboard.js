@@ -120,6 +120,8 @@ Template.dashboard.events({
       { upsert: true}
     );
     alert("Your profile has been updated");
+    var email = Meteor.user().emails[0].address;
+    Router.go(Meteor.absoluteUrl()+ 'users/' + email);
   }
 });
 

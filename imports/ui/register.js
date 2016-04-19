@@ -1,4 +1,5 @@
 import { Template } from 'meteor/templating';
+import { PublicProfileDB } from '../api/mongo.js';
 
 import './register.html';
 
@@ -24,7 +25,12 @@ Template.register.events({
         }
         else {
           console.log("Account successfully created");
-          Router.go('/dashboard');
+          var userId = Meteor.userId();
+          PublicProfileDB.insert({
+            profileId: userId,
+            email: email
+          });
+          Router.go(Meteor.absoluteUrl()+ 'users/' + email);
         }
       });
     }

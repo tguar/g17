@@ -15,7 +15,8 @@ Template.login.events({
         console.log(error.reason);
       }
       else {
-        Router.go('/dashboard');
+        console.log("User has logged in");
+        Router.go(Meteor.absoluteUrl()+ 'users/' + email);
       }
     });
   },

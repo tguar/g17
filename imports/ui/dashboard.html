@@ -42,7 +42,7 @@
             placeholder="Address Line 2" type="text" value="{{address.addressLine2}}">
           </div>
           <div class="col-sm-3">
-            <label>Zip Code</label>
+            <label>City</label>
             <input class="form-control" id="yourAddressCity"
             placeholder="City" required type="text"  value="{{address.city}}">
           </div>
@@ -356,6 +356,9 @@
     {{/with}}
     {{else}}
     <h4>You are not logged in</h4>
+    <p>
+      Click <a href="/" class="logout">here</a> to return to the login page.
+    </p>
     {{/if}}
   </div>
 </template>
