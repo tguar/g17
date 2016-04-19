@@ -1,12 +1,10 @@
 <template name="dashboard">
-  <div class="container">
+  <div class="container img-rounded">
     <h2>Edit My Profile</h2>
     {{#if currentUser}}
-    <div class="container">
     <a class="logout col-md-offset-11" href="/">Logout</a>
-  </div>
     {{#with formData}}
-    <form>
+    <form class="img-rounded">
       <div class="form-group">
         <div class="row">
           <div class="col-sm-3">

@@ -3,7 +3,12 @@ h6{
 }
 
 body{
-  background-color: black;
+  background-color: lightblue;
+}
+
+.container{
+  background-color: lightgreen;
+  padding: 50px;
 }
 
 form{
