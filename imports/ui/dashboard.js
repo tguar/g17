@@ -39,7 +39,17 @@ Template.dashboard.events({
     height = document.getElementById('height').value,
     bloodType = document.getElementById('bloodType').value,
     weight = document.getElementById('weight').value,
-    dob = document.getElementById('dob').value;
+    dob = document.getElementById('dob').value,
+    allergy1 = document.getElementById('latex').checked,
+    allergy2 = document.getElementById('nuts').checked,
+    allergy3 = document.getElementById('milk').checked,
+    allergy4 = document.getElementById('egg').checked,
+    allergy5 = document.getElementById('otherAllergies').value,
+    condition1 = document.getElementById('asthma').checked,
+    condition2 = document.getElementById('diabetes').checked,
+    condition3 = document.getElementById('epilepsy').checked,
+    condition4 = document.getElementById('heartConditions').checked,
+    condition5 = document.getElementById('otherConditionsText').value,
     emergencyFirstName1 = document.getElementById('emergencyFirstName1').value,
     emergencyLastName1 = document.getElementById('emergencyLastName1').value,
     emergencyPhoneNumber1 = document.getElementById('emergencyPhoneNumber1').value,
@@ -79,6 +89,20 @@ Template.dashboard.events({
           height: height,
           weight: weight,
           dateOfBirth: dob,
+          allergies: {
+            latex: allergy1,
+            nut: allergy2,
+            milk: allergy3,
+            egg: allergy4,
+            otherAllergies: allergy5
+          },
+          otherConditions: {
+            asthma: condition1,
+            diabetes: condition2,
+            epilepsy: condition3,
+            heartConditions: condition4,
+            otherConditions: condition5
+          },
           emergencyContact1: {
             first: emergencyFirstName1,
             last: emergencyLastName1,
@@ -95,6 +119,50 @@ Template.dashboard.events({
       },
       { upsert: true}
     );
-    console.log("Your profile has been updated");
+    alert("Your profile has been updated");
   }
+});
+
+Template.dashboard.onRendered(function () {
+  // Use the Packery jQuery plugin
+  var userId = Meteor.userId();
+  var db = PublicProfileDB.findOne({profileId: userId});
+  var check;
+  check = db.allergies.latex;
+  if(check == true) {
+    document.getElementById('latex').checked = true;
+  }
+  check = db.allergies.nut;
+  if(check == true) {
+    document.getElementById('nuts').checked = true;
+  }
+  check = db.allergies.milk;
+  if(check == true) {
+    document.getElementById('milk').checked = true;
+  }
+  check = db.allergies.egg;
+  if(check == true) {
+    document.getElementById('egg').checked = true;
+  }
+  check = db.otherConditions.asthma;
+  if(check == true) {
+    document.getElementById('asthma').checked = true;
+  }
+  check = db.otherConditions.diabetes;
+  if(check == true) {
+    document.getElementById('diabetes').checked = true;
+  }
+  check = db.otherConditions.epilepsy;
+  if(check == true) {
+    document.getElementById('epilepsy').checked = true;
+  }
+  check = db.otherConditions.heartConditions;
+  if(check == true) {
+    document.getElementById('heartConditions').checked = true;
+  }
+  check = db.address.state;
+  document.getElementById('yourAddressState').value = check;
+  check = db.bloodType;
+  document.getElementById('bloodType').value = check;
+
 });

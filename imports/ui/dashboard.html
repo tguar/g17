@@ -48,9 +48,9 @@
           </div>
           <div class="col-sm-2">
             <label>State</label>
-            <select class="form-control" id="yourAddressState" required value="{{address.state}}">
+            <select class="form-control" id="yourAddressState" required>
               <option value=" " selected>
-                Select One
+                Select State
               </option>
               <option value="AL">
                 Alabama
@@ -277,7 +277,7 @@
           <input class="form-control-inline" id="nuts" type="checkbox"> Nut<br>
           <input class="form-control-inline" id="milk" type="checkbox"> Milk<br>
           <input class="form-control-inline" id="egg" type="checkbox"> Egg<br>
-          <input class="form-control" id="otherAllergies" placeholder="Other allergies, separated by comma" type="text">
+          <input class="form-control" id="otherAllergies" placeholder="Other allergies, separated by comma" type="text" value="{{allergies.otherAllergies}}">
         </div>
       </div>
       <div class="form-group">
@@ -286,8 +286,8 @@
           <input class="form-control-inline" id="asthma" type="checkbox"> Asthma<br>
           <input class="form-control-inline" id="diabetes" type="checkbox"> Diabetes<br>
           <input class="form-control-inline" id="epilepsy" type="checkbox"> Epilepsy<br>
-          <input class="form-control-inline" id="heartConditions" type="checkbox"> HeartConditions<br>
-          <input class="form-control" id="otherConditionsText" placeholder="Other Conditions, separated by comma" type="text">
+          <input class="form-control-inline" id="heartConditions" type="checkbox"> Heart Conditions<br>
+          <input class="form-control" id="otherConditionsText" placeholder="Other Conditions, separated by comma" type="text" value="{{otherConditions.otherConditions}}">
         </div>
       </div>
       <br>
