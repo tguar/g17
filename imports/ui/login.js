@@ -16,7 +16,7 @@ Template.login.events({
       }
       else {
         console.log("User has logged in");
-        Router.go(Meteor.absoluteUrl()+ 'users/' + email);
+        Router.go(Meteor.absoluteUrl() + Meteor.userId());
       }
     });
   },

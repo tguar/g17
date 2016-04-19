@@ -33,7 +33,7 @@ Template.dashboard.events({
     event.preventDefault();
 
     console.log("Back to home page");
-    Router.go('/users/:email');
+    Router.go(Meteor.absoluteUrl() + Meteor.userId());
   },
   'submit': function(event) {
     // Prevent default browser form submit
@@ -135,7 +135,7 @@ Template.dashboard.events({
     );
     alert("Your profile has been updated");
     var email = Meteor.user().emails[0].address;
-    Router.go(Meteor.absoluteUrl()+ 'users/' + email);
+    Router.go(Meteor.absoluteUrl() + Meteor.userId());
   }
 });
 

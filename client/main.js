@@ -25,14 +25,14 @@ Router.route('/', {
   template: 'login',
 });
 
-Router.route('/users/:email', {
-  template: 'home',
-});
-
 Router.route('/register', {
   template: 'register',
 });
 
 Router.route('/dashboard', {
   template: 'dashboard',
+});
+
+Router.route(':userId', {
+  template: 'home',
 });
