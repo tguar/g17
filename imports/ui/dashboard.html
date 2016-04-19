@@ -1,8 +1,8 @@
 <template name="dashboard">
   <div class="container">
+    <h2>Edit My Profile</h2>
     {{#if currentUser}}
     <a class="logout" href="/">Logout</a>
-    <h2>Edit My Profile</h2>
     {{#with formData}}
     <form>
       <div class="form-group">
@@ -350,8 +350,14 @@
       </div>
       <br>
       <br>
-      <button class="btn btn-primary btn-block" type=
-      "submit">Update</button>
+      <div class="col-sm-6">
+        <button class="btn btn-primary btn-block" type=
+        "submit">Update</button>
+      </div>
+      <div class="col-sm-6">
+        <button class="btn btn-default btn-block cancel" type=
+        "cancel">Cancel</button>
+      </div>
     </form>
     {{/with}}
     {{else}}

@@ -21,13 +21,19 @@ Template.dashboard.events({
     console.log("User has logged off");
     Router.go('/');
   },
-  'click .logiin': function(event) {
+  'click .login': function(event) {
     // Prevent default browser form submit
     event.preventDefault();
 
-    Meteor.logout();
     console.log("Back to login page");
     Router.go('/');
+  },
+  'click .cancel': function(event) {
+    // Prevent default browser form submit
+    event.preventDefault();
+
+    console.log("Back to home page");
+    Router.go('/users/:email');
   },
   'submit': function(event) {
     // Prevent default browser form submit
