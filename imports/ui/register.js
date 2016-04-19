@@ -30,7 +30,7 @@ Template.register.events({
             profileId: userId,
             email: email
           });
-          Router.go(Meteor.absoluteUrl()+ 'users/' + email);
+          Router.go(Meteor.absoluteUrl()+ 'dashboard');
         }
       });
     }

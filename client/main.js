@@ -20,6 +20,7 @@ if(Meteor.isServer){
   // server code goes here
 }
 
+
 // Routes
 Router.route('/', {
   template: 'login',

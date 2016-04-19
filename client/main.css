@@ -1,1 +1,13 @@
-/* CSS declarations go here */
+h6{
+  padding-top: 40px;
+}
+
+body{
+  background-color: black;
+}
+
+form{
+  padding: 40px;
+  background-color: white;
+  padding-bottom: 50px;
+}

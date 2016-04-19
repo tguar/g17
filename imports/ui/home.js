@@ -3,14 +3,12 @@ import { PublicProfileDB } from '../api/mongo.js';
 
 import './home.html';
 
-// Template.home.helpers({
-//   formData:function(){
-//     var id = Meteor.userId();
-//     var db = PublicProfileDB.findOne({profileId: id});
-//     console.log(db);
-//     return PublicProfileDB.findOne({profileId: id});
-//   }
-// })
+Template.home.helpers({
+  userObject: function () {
+    var user = Meteor.userId();
+    return PublicProfileDB.findOne({profileId: user});
+  }
+});
 
 Template.home.events({
   'click .logout': function(event) {
