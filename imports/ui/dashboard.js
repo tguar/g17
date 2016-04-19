@@ -36,9 +36,10 @@ Template.dashboard.events({
     zipCode =  document.getElementById('yourZipCode').value,
     city = document.getElementById('yourAddressCity').value,
     state = document.getElementById('yourAddressState').value,
+    height = document.getElementById('height').value,
     bloodType = document.getElementById('bloodType').value,
     weight = document.getElementById('weight').value,
-    dob = document.getElementById('dob').value,
+    dob = document.getElementById('dob').value;
     emergencyFirstName1 = document.getElementById('emergencyFirstName1').value,
     emergencyLastName1 = document.getElementById('emergencyLastName1').value,
     emergencyPhoneNumber1 = document.getElementById('emergencyPhoneNumber1').value,
@@ -50,44 +51,50 @@ Template.dashboard.events({
 
 
     var userId = Meteor.userId();
-    PublicProfileDB.find( {profileId: userId} );
-    PublicProfileDB.insert({
-      profileId: userId,
-      name: {
-        first: firstName,
-        middle: middleName,
-        last: lastName,
-        nickname: nickName
+    var db = PublicProfileDB.findOne({profileId: userId});
+    // PublicProfileDB.find( {profileId: userId} );
+    // console.log(db._id);
+    PublicProfileDB.update(
+      { _id: db._id }, {
+        $set: {
+          profileId: userId,
+          name: {
+            first: firstName,
+            middle: middleName,
+            last: lastName,
+            nickname: nickName
+          },
+          phoneNumber: {
+            number1: phoneNumber1,
+            number2: phoneNumber2
+          },
+          address: {
+            addressLine1: address1,
+            addressLine2: address2,
+            city: city,
+            state: state,
+            zipCode: zipCode
+          },
+          bloodType: bloodType,
+          height: height,
+          weight: weight,
+          dateOfBirth: dob,
+          emergencyContact1: {
+            first: emergencyFirstName1,
+            last: emergencyLastName1,
+            number: emergencyPhoneNumber1,
+            relation: emergencyRelation1
+          },
+          emergencyContact2: {
+            first: emergencyFirstName2,
+            last: emergencyLastName2,
+            number: emergencyPhoneNumber2,
+            relation: emergencyRelation2
+          }
+        }
       },
-      phoneNumber: {
-        number1: phoneNumber1,
-        number2: phoneNumber2
-      },
-      address: {
-        addressLine1: address1,
-        addressLine2: address2,
-        city: city,
-        state: state,
-        zipCode: zipCode
-      },
-      bloodType: bloodType,
-      height: height,
-      weight: weight,
-      dateOfBirth: dob,
-      emergencyContact1: {
-        first: emergencyFirstName1,
-        last: emergencyLastName1,
-        number: emergencyPhoneNumber1,
-        relation: emergencyRelation1
-      },
-      emergencyContact2: {
-        first: emergencyFirstName2,
-        last: emergencyLastName2,
-        number: emergencyPhoneNumber2,
-        relation: emergencyRelation2
-      }
-    });
-
-    console.alert("Your profile has been updated");
+      { upsert: true}
+    );
+    console.log("Your profile has been updated");
   }
 });
