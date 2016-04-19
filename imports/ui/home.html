@@ -1,0 +1,51 @@
+<template name="home">
+  <div class="container">
+    <h2>User Profile</h2>
+    {{#if currentUser}}
+    <a href="/" class="logout">Logout</a>
+    {{/if}}
+    <form>
+      <div class="form-group">
+        <label for="firstName">First Name: FirstName</label>
+      </div>
+      <div class="form-group">
+        <label for="middleName">Middle Initial: MiddleName</label>
+      </div>
+      <div class="form-group">
+        <label for="lastName">Last Name: LastName</label>
+      </div>
+      <div class="form-group">
+        <label for="nickName">Nickname: NickName</label>
+      </div>
+      <div class="form-group">
+        <label for="bloodType">Blood Type: O+</label>
+      </div>
+      <div class="form-group">
+        <label for="phoneNumber1">Emergency Contact Phone Number 1: (904) 867-5309</label>
+      </div>
+      <div class="form-group">
+        <label for="phoneNumber2">Emergency Contact Phone Number 2: (904) 555-5555</label>
+      </div>
+      <div class="form-group">
+        <label for="address1">Street Address Line 1: Here</label>
+      </div>
+      <div class="form-group">
+        <label for="address2">Street Address Line 2: There</label>
+      </div>
+      <div class="form-group">
+        <label for="cityState">City, State: Gainesville, FL</label>
+      </div>
+      <div class="form-group">
+        <label for="zipCode">Zip Code: 32602</label>
+      </div>
+      <div class="form-group">
+        <label for="weight">Weight: Fatty</label>
+      </div>
+      <div class="form-group">
+        <label for="dob">Date of Birth: 04/16/16</label>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">Edit</button>
+
+    </form>
+  </div>
+</template>

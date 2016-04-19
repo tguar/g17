@@ -1,47 +1,57 @@
 <template name="dashboard">
   <div class="container">
+    <h2>Edit My Profile</h2>
     {{#if currentUser}}
     <a class="logout" href="/">Logout</a>
-    <h2>Edit My Profile</h2>
+    {{#with formData}}
     <form>
       <div class="form-group">
-        <label>Your Name</label><br>
         <div class="row">
           <div class="col-sm-3">
+            <label>First Name</label>
             <input class="form-control" id="yourFirstName"
-            placeholder="First Name" required type="text">
+            placeholder="First Name" required type="text" value="{{name.first}}">
           </div>
           <div class="col-sm-3">
+            <label>Middle Name</label>
             <input class="form-control" id="yourMiddleName"
-            placeholder="Middle Name" type="text">
+            placeholder="Middle Name" type="text" value="{{name.middle}}">
           </div>
           <div class="col-sm-3">
+            <label>Last Name</label>
             <input class="form-control" id="yourLastName"
-            placeholder="Last Name" required type="tel">
+            placeholder="Last Name" required type="tel" value="{{name.last}}">
           </div>
           <div class="col-sm-3">
+            <label>Nickname</label>
             <input class="form-control" id="yourNickName"
-            placeholder="Nick Name" type="text">
+            placeholder="Nick Name" type="text" value="{{name.nickname}}">
           </div>
         </div>
       </div>
       <div class="form-group">
-        <label>Your Address</label><br>
         <div class="row">
           <div class="col-sm-3">
+            <label>Address Line 1</label>
             <input class="form-control" id="yourAddressLine1"
-            placeholder="Address Line 1" required type="text">
+            placeholder="Address Line 1" required type="text" value="{{address.addressLine1}}">
           </div>
           <div class="col-sm-2">
-            <input class="form-control" id="yourAddressline2"
-            placeholder="Address Line 2" type="text">
+            <label>Address Line 2</label>
+            <input class="form-control" id="yourAddressLine2"
+            placeholder="Address Line 2" type="text" value="{{address.addressLine2}}">
           </div>
           <div class="col-sm-3">
+            <label>City</label>
             <input class="form-control" id="yourAddressCity"
-            placeholder="City" required type="text">
+            placeholder="City" required type="text"  value="{{address.city}}">
           </div>
           <div class="col-sm-2">
+            <label>State</label>
             <select class="form-control" id="yourAddressState" required>
+              <option value=" " selected>
+                Select State
+              </option>
               <option value="AL">
                 Alabama
               </option>
@@ -198,97 +208,86 @@
             </select>
           </div>
           <div class="col-sm-2">
+            <label>Zip Code</label>
             <input class="form-control" id="yourZipCode"
-            placeholder="Zip Code" required type="number">
+            placeholder="Zip Code" required type="number" value="{{address.zipCode}}">
           </div>
         </div>
       </div>
       <div class="form-group">
-        <label>Your Physical Characteristics</label><br>
         <div class="row">
           <div class="col-sm-4">
-            <select class="form-control" id="bloodType" required=
-            "">
-            <option value="">
-              Blood Type
-            </option>
-            <option value="aPlus">
-              A+
-            </option>
-            <option value="aMinus">
-              A-
-            </option>
-            <option value="bPlus">
-              B+
-            </option>
-            <option value="bMinus">
-              B-
-            </option>
-            <option value="abPlus">
-              AB+
-            </option>
-            <option value="abMinus">
-              AB-
-            </option>
-            <option value="oPlus">
-              O+
-            </option>
-            <option value="oMinus">
-              O-
-            </option>
-          </select>
-        </div>
-        <div class="col-sm-4">
-          <input class="form-control" id="height" placeholder=
-          "Height (inches)" required type="number">
-        </div>
-        <div class="col-sm-4">
-          <input class="form-control" id="weight" placeholder=
-          "Weight (lbs)" required type="number">
+            <label>Blood Type</label>
+            <select class="form-control" id="bloodType" required value="{{address.zipCode}}">
+              <option value="">
+                Blood Type
+              </option>
+              <option value="aPlus">
+                A+
+              </option>
+              <option value="aMinus">
+                A-
+              </option>
+              <option value="bPlus">
+                B+
+              </option>
+              <option value="bMinus">
+                B-
+              </option>
+              <option value="abPlus">
+                AB+
+              </option>
+              <option value="abMinus">
+                AB-
+              </option>
+              <option value="oPlus">
+                O+
+              </option>
+              <option value="oMinus">
+                O-
+              </option>
+            </select>
+          </div>
+          <div class="col-sm-4">
+            <label>Height (inches)</label>
+            <input class="form-control" id="height" placeholder=
+            "Height (inches)" required type="number" value="{{height}}">
+          </div>
+          <div class="col-sm-4">
+            <label>Weight (lbs)</label>
+            <input class="form-control" id="weight" placeholder=
+            "Weight (lbs)" required type="number" value="{{weight}}">
+          </div>
         </div>
       </div>
-    </div>
-    <div class="form-group">
-      <label>Your Date of Birth</label><br>
-      <div class="row">
-        <div class="col-sm-4">
-          <input class="form-control" id="dob" placeholder=
-          "MM/DD/YYYY" required type="date">
+      <div class="form-group">
+        <div class="row">
+          <div class="col-sm-4">
+            <label>Date of Birth</label>
+            <input class="form-control" id="dob" placeholder=
+            "MM/DD/YYYY" required type="date" value="{{dateOfBirth}}">
+          </div>
         </div>
       </div>
       <hr>
       <div class="form-group">
         <div class="col-sm-6" >
           <label for="allergies">Allergies</label><br>
-          <input class="form-control-inline" id="latex" type=
-          "checkbox" required> Latex<br>
-          <input class="form-control-inline" id="nuts" type=
-          "checkbox" required> Nut<br>
-          <input class="form-control-inline" id="latex" type=
-          "checkbox" required> Milk<br>
-          <input class="form-control-inline" id="latex" type=
-          "checkbox" required> Egg<br>
-          <input class="form-control" id="otherAllergies"
-          placeholder="Other allergies, separated by comma" type="text">
+          <input class="form-control-inline" id="latex" type="checkbox"> Latex<br>
+          <input class="form-control-inline" id="nuts" type="checkbox"> Nut<br>
+          <input class="form-control-inline" id="milk" type="checkbox"> Milk<br>
+          <input class="form-control-inline" id="egg" type="checkbox"> Egg<br>
+          <input class="form-control" id="otherAllergies" placeholder="Other allergies, separated by comma" type="text" value="{{allergies.otherAllergies}}">
         </div>
-        <div class="form-group">
-          <div class="col-sm-6">
-            <label for="otherConditions">Other
-              Conditions</label><br>
-              <input class="form-control-inline" id="asthma"
-              type="checkbox" required> Asthma<br>
-              <input class="form-control-inline" id="diabetes"
-              type="checkbox" required> Diabetes<br>
-              <input class="form-control-inline" id="epilepsy"
-              type="checkbox" required> Epilepsy<br>
-              <input class="form-control-inline" id=
-              "heartConditions" type="checkbox" required> Heart
-              Conditions<br>
-              <input class="form-control" id=
-              "otherConditionsText" placeholder=
-              "Other Conditions, separated by comma" type="text">
-            </div>
-          </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-6">
+          <label for="otherConditions">OtherConditions</label><br>
+          <input class="form-control-inline" id="asthma" type="checkbox"> Asthma<br>
+          <input class="form-control-inline" id="diabetes" type="checkbox"> Diabetes<br>
+          <input class="form-control-inline" id="epilepsy" type="checkbox"> Epilepsy<br>
+          <input class="form-control-inline" id="heartConditions" type="checkbox"> Heart Conditions<br>
+          <input class="form-control" id="otherConditionsText" placeholder="Other Conditions, separated by comma" type="text" value="{{otherConditions.otherConditions}}">
         </div>
       </div>
       <br>
@@ -303,20 +302,24 @@
         <label>Emergency Contact #1</label><br>
         <div class="row">
           <div class="col-sm-3">
+            <label>First Name</label>
             <input class="form-control" id="emergencyFirstName1"
-            placeholder="First name" type="text">
+            placeholder="First name" type="text" value="{{emergencyContact1.first}}">
           </div>
           <div class="col-sm-3">
-            <input class="form-control" id="emergencyLasttName1"
-            placeholder="Last name" type="text">
+            <label>Last Name</label>
+            <input class="form-control" id="emergencyLastName1"
+            placeholder="Last name" type="text" value="{{emergencyContact1.last}}">
           </div>
           <div class="col-sm-3">
+            <label>Phone Number</label>
             <input class="form-control" id="emergencyPhoneNumber1"
-            placeholder="Phone Number" type="tel">
+            placeholder="Phone Number" type="tel" value="{{emergencyContact1.number}}">
           </div>
           <div class="col-sm-3">
+            <label>Relation</label>
             <input class="form-control" id="emergencyRelation1"
-            placeholder="Relation" type="text">
+            placeholder="Relation" type="text" value="{{emergencyContact1.relation}}">
           </div>
         </div>
       </div>
@@ -324,29 +327,44 @@
         <label>Emergency Contact #2</label><br>
         <div class="row">
           <div class="col-sm-3">
+            <label>First Name</label>
             <input class="form-control" id="emergencyFirstName2"
-            placeholder="First name" type="text">
+            placeholder="First name" type="text" value="{{emergencyContact2.first}}">
           </div>
           <div class="col-sm-3">
-            <input class="form-control" id="emergencyLasttName2"
-            placeholder="Last name" type="text">
+            <label>Last Name</label>
+            <input class="form-control" id="emergencyLastName2"
+            placeholder="Last name" type="text" value="{{emergencyContact2.last}}">
           </div>
           <div class="col-sm-3">
+            <label>Phone Number</label>
             <input class="form-control" id="emergencyPhoneNumber2"
-            placeholder="Phone Number" type="tel">
+            placeholder="Phone Number" type="tel" value="{{emergencyContact2.number}}">
           </div>
           <div class="col-sm-3">
+            <label>Relation</label>
             <input class="form-control" id="emergencyRelation2"
-            placeholder="Relation" type="text">
+            placeholder="Relation" type="text" value="{{emergencyContact2.relation}}">
           </div>
         </div>
-      </div><br>
+      </div>
       <br>
-      <button class="btn btn-primary btn-block" type=
-      "submit">Update</button>
+      <br>
+      <div class="col-sm-6">
+        <button class="btn btn-primary btn-block" type=
+        "submit">Update</button>
+      </div>
+      <div class="col-sm-6">
+        <button class="btn btn-default btn-block cancel" type=
+        "cancel">Cancel</button>
+      </div>
     </form>
+    {{/with}}
     {{else}}
     <h4>You are not logged in</h4>
+    <p>
+      Click <a href="/" class="login">here</a> to return to the login page.
+    </p>
     {{/if}}
   </div>
 </template>
