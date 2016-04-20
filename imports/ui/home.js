@@ -11,7 +11,28 @@ Template.home.helpers({
     str = str.replace('/users/', '');
   //  var user = Meteor.userId();
     return PublicProfileDB.findOne({email: str});
+    // var user = Meteor.userId();
+    // return PublicProfileDB.findOne({profileId: user});
+  },
+  checkUser: function () {
+    var viewing = window.location.pathname;
+    viewing = viewing.replace('/users/', '');
+    viewingObject = PublicProfileDB.findOne({email: viewing});
+    viewingUser = viewingObject.profileId;
+    currentUser = Meteor.userId();
+    var check = true;
+    if(currentUser != viewingUser) {
+      check = false;
+    }
+    return check;
+    // var user = Meteor.userId();
+    // return PublicProfileDB.findOne({profileId: user});
   }
+  // viewer: function () {
+  //   var user = Meteor.userId();
+  //   viewerObject = PublicProfileDB.findOne({profileId: user});
+  //   return viewerObject.profileId;
+  // }
 });
 
 Template.home.events({
