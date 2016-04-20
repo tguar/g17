@@ -9,16 +9,21 @@ import './home.html';
   Template.home.helpers({
     userObject: function () {
       var user = Meteor.userId();
-      if (Roles.userIsInRole(userId, ['view-secrets','admin', 'super-admin'], group)) {
-        return PublicProfileDB.findOne({profileId: user});
-      }
-      else {
+      if(!Meteor.userId()){
+        if (Roles.userIsInRole(userId, ['view-secrets','admin', 'super-admin'], group)) {
+          return PublicProfileDB.findOne({profileId: user});
+        }
+        else {
 
-          //Unathurized access
-          this.stop();
-          return;
+            //Unathurized access
+            this.stop();
+            return;
 
         }
+      }
+      else {
+        return PublicProfileDB.findOne({profileId: user});
+      }
     }
   });
 
