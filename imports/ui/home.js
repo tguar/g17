@@ -4,24 +4,23 @@ import { PublicProfileDB } from '../api/mongo.js';
 import './home.html';
 
 
-// var userId = Meteor.userId();
-//
-// if (Roles.userIsInRole(userId, ['view-secrets','admin', 'super-admin'], group)) {
+
 
   Template.home.helpers({
     userObject: function () {
       var user = Meteor.userId();
-      return PublicProfileDB.findOne({profileId: user});
+      if (Roles.userIsInRole(userId, ['view-secrets','admin', 'super-admin'], group)) {
+        return PublicProfileDB.findOne({profileId: user});
+      }
+      else {
+
+          //Unathurized access
+          this.stop();
+          return;
+
+        }
     }
   });
-
-// } else {
-//
-//     //Unathurized access
-//     this.stop();
-//     return;
-//
-//   }
 
 
 Template.home.events({
