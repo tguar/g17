@@ -12,7 +12,7 @@ Template.login.events({
 
     Meteor.loginWithPassword(email, password, function(error) {
       if(error) {
-        console.log(error.reason);
+        alert(error.reason);
       }
       else {
         console.log("User has logged in");

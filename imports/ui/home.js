@@ -39,8 +39,3 @@ Template.home.events({
 
   }
 });
-
-// document.addEventListener("DOMContentLoaded", function(event) {
-//     console.log("DOM fully loaded and parsed");
-//     document.getElementById('a').innerHTML = "Hello";
-//   });

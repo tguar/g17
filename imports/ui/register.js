@@ -21,7 +21,7 @@ Template.register.events({
         password: password,
       }, function(error) {
         if(error) {
-          console.log(error.reason);
+          alert(error.reason);
         }
         else {
           console.log("Account successfully created");
