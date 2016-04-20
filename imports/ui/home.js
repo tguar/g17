@@ -4,14 +4,24 @@ import { PublicProfileDB } from '../api/mongo.js';
 import './home.html';
 
 
+// Meteor.Router.add(':userId', function() {
+//   return this.params.userId;
+// });
+
+
+
 
 
   Template.home.helpers({
     userObject: function () {
       var user = Meteor.userId();
-      if(!Meteor.userId()){
-        if (Roles.userIsInRole(userId, ['view-secrets','admin', 'super-admin'], group)) {
-          return PublicProfileDB.findOne({profileId: user});
+      var otherUser = Router.current().params.userId;
+      if(Router.current().params.userId === Meteor.userId()){
+        return PublicProfileDB.findOne({profileId: user});
+      }
+      else {
+        if (Meteor.userId()) {
+          return PublicProfileDB.findOne({profileId: otherUser});
         }
         else {
 
@@ -20,9 +30,6 @@ import './home.html';
             return;
 
         }
-      }
-      else {
-        return PublicProfileDB.findOne({profileId: user});
       }
     }
   });
