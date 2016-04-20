@@ -1,13 +1,14 @@
 <template name="login">
-  <div class="container">
-    <h2>Login</h2>
+  <div class="container img-rounded">
     {{#if currentUser}}
     <h4>You are already logged in</h4>
     <p>
       Click here to return to the <a href="/dashboard" class="dashboard">dashboard</a>
     </p>
     {{else}}
-    <form>
+    <div class ="row">
+      <div class="col-md-4 col-md-offset-4">
+    <form class="img-rounded">
       <div class="form-group">
         <label for="inputEmail">Email address</label>
         <input type="email" class="form-control" id="inputEmail" placeholder="Email">
@@ -16,9 +17,14 @@
         <label for="inputPassword">Password</label>
         <input type="password" class="form-control" id="inputPassword" placeholder="Password">
       </div>
-      <button type="submit" class="btn btn-default">Login</button>
-      <a class="btn btn-primary btn-xs" href="register" role="button">Register</a>
+      <button type="submit" class="btn btn-default col-md-12">Login</button>
+
+      <h6 class ="text-center"> - OR - </h6>
+
+      <a class="btn btn-primary col-md-12" href="register" role="button">Register</a>
     </form>
+    </div>
+  </div>
     {{/if}}
   </div>
 </template>

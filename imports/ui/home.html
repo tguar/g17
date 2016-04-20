@@ -1,10 +1,10 @@
 <template name="home">
-  <div class="container">
+  <div class="container img-rounded">
     <h2>User Profile</h2>
     {{#if currentUser}}
     <a href="/" class="logout">Logout</a>
     {{/if}}
-    <form>
+    <form class="img-rounded">
       <div class="form-group">
         <div class="row">
           <div class="col-sm-3">
@@ -123,9 +123,8 @@
           </div>
         </div>
       </div>
-      <button type="submit" class="btn btn-primary btn-block">Edit</button>
       <br>
       <br>
-    </form>
+        </form>
   </div>
 </template>
