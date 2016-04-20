@@ -26,6 +26,16 @@ Template.home.events({
   }
 });
 
+Template.home.events({
+  'click button': function(event) {
+    // Prevent default browser form submit
+    event.preventDefault();
+    Router.go(Meteor.absoluteUrl()+ 'dashboard');
+
+
+  }
+});
+
 // document.addEventListener("DOMContentLoaded", function(event) {
 //     console.log("DOM fully loaded and parsed");
 //     document.getElementById('a').innerHTML = "Hello";
