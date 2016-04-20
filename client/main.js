@@ -6,7 +6,6 @@ import '../imports/ui/login.js';
 import '../imports/ui/home.js';
 import '../imports/ui/register.js';
 import '../imports/ui/dashboard.js';
-import '../imports/ui/registerPro.html';
 
 
 // Template.hello.onCreated();

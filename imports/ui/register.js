@@ -11,6 +11,7 @@ Template.register.events({
     var email = document.getElementById('registerEmail').value
     var password = document.getElementById('registerPassword').value;
     var password2 = document.getElementById('registerPassword2').value;
+    var pro = document.getElementById('professional').checked;
 
     if(password !== password2) {
       alert("Your passwords do not match");
@@ -30,7 +31,12 @@ Template.register.events({
             profileId: userId,
             email: email
           });
-          Roles.addUsersToRoles(userId, ['public'], 'group');
+          if(pro){
+            Roles.addUsersToRoles(userId, ['super-admin'], Roles.GLOBAL_GROUP);
+          }
+          else{
+            Roles.addUsersToRoles(userId, ['public'], 'group');
+          }
           Router.go(Meteor.absoluteUrl() + Meteor.userId());
         }
       });
