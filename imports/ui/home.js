@@ -3,12 +3,26 @@ import { PublicProfileDB } from '../api/mongo.js';
 
 import './home.html';
 
-Template.home.helpers({
-  userObject: function () {
-    var user = Meteor.userId();
-    return PublicProfileDB.findOne({profileId: user});
-  }
-});
+
+// var userId = Meteor.userId();
+//
+// if (Roles.userIsInRole(userId, ['view-secrets','admin', 'super-admin'], group)) {
+
+  Template.home.helpers({
+    userObject: function () {
+      var user = Meteor.userId();
+      return PublicProfileDB.findOne({profileId: user});
+    }
+  });
+
+// } else {
+//
+//     //Unathurized access
+//     this.stop();
+//     return;
+//
+//   }
+
 
 Template.home.events({
   'click .logout': function(event) {

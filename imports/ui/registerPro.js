@@ -1,7 +1,7 @@
 import { Template } from 'meteor/templating';
 import { PublicProfileDB } from '../api/mongo.js';
 
-import './register.html';
+import './registerPro.html';
 
 Template.register.events({
   'click button': function(event) {
@@ -30,7 +30,14 @@ Template.register.events({
             profileId: userId,
             email: email
           });
-          Roles.addUsersToRoles(userId, ['public'], 'group');
+
+          // var users = [
+          //   {name:"Normal User",email:"normal@example.com",roles:[]},
+          //   {name:"Admin User",email:"admin@example.com",roles:['admin']}
+          // ];
+
+
+          Roles.addUsersToRoles(userId, ['super-admin'], Roles.GLOBAL_GROUP);
           Router.go(Meteor.absoluteUrl() + Meteor.userId());
         }
       });

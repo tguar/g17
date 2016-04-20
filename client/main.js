@@ -6,6 +6,7 @@ import '../imports/ui/login.js';
 import '../imports/ui/home.js';
 import '../imports/ui/register.js';
 import '../imports/ui/dashboard.js';
+import '../imports/ui/registerPro.html';
 
 
 // Template.hello.onCreated();
@@ -18,6 +19,11 @@ if(Meteor.isClient){
 
 if(Meteor.isServer){
   // server code goes here
+
+//   Meteor.publish(null, function (){
+//   return Meteor.roles.find({})
+// })
+
 }
 
 // Routes
@@ -27,6 +33,10 @@ Router.route('/', {
 
 Router.route('/register', {
   template: 'register',
+});
+
+Router.route('/registerPro', {
+  template: 'registerPro',
 });
 
 Router.route('/dashboard', {
