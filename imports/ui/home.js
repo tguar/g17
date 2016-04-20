@@ -3,10 +3,14 @@ import { PublicProfileDB } from '../api/mongo.js';
 
 import './home.html';
 
+
+
 Template.home.helpers({
   userObject: function () {
-    var user = Meteor.userId();
-    return PublicProfileDB.findOne({profileId: user});
+    var str = window.location.pathname;
+    str = str.replace('/users/', '');
+  //  var user = Meteor.userId();
+    return PublicProfileDB.findOne({email: str});
   }
 });
 
