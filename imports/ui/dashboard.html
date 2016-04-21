@@ -1,8 +1,8 @@
 <template name="dashboard">
   <div class="container img-rounded">
-    <h2>Edit My Profile</h2>
+    <h2 class=" text-center">Edit My Profile</h2>
     {{#if currentUser}}
-    <a class="logout col-md-offset-11" href="/">Logout</a>
+    <a class="btn btn-primary col-md-offset-11 logout" href="/" role="button">Logout</a>
     {{#with formData}}
     <form class="img-rounded">
       <div class="form-group">
@@ -289,11 +289,11 @@
         <div class="row">
           <div class="col-sm-3">
             <input class="form-control" id="emergencyFirstName1"
-            placeholder="First name" type="text" value="{{emergencyContact1.first}}">
+            placeholder="Emergency Contact First Name" type="text" value="{{emergencyContact1.first}}">
           </div>
           <div class="col-sm-3">
             <input class="form-control" id="emergencyLastName1"
-            placeholder="Last name" type="text" value="{{emergencyContact1.last}}">
+            placeholder="Emergency Contact Last Name" type="text" value="{{emergencyContact1.last}}">
           </div>
           <div class="col-sm-3">
             <input class="form-control" id="emergencyPhoneNumber1"
@@ -309,11 +309,11 @@
         <div class="row">
           <div class="col-sm-3">
             <input class="form-control" id="emergencyFirstName2"
-            placeholder="First name" type="text" value="{{emergencyContact2.first}}">
+            placeholder="Emergency Contact First Name" type="text" value="{{emergencyContact2.first}}">
           </div>
           <div class="col-sm-3">
             <input class="form-control" id="emergencyLastName2"
-            placeholder="Last name" type="text" value="{{emergencyContact2.last}}">
+            placeholder="Emergency Contact Last Name" type="text" value="{{emergencyContact2.last}}">
           </div>
           <div class="col-sm-3">
             <input class="form-control" id="emergencyPhoneNumber2"
