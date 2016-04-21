@@ -3,6 +3,7 @@ import { ReactiveVar } from 'meteor/reactive-var';
 
 import './main.html';
 import '../imports/ui/login.js';
+import '../imports/ui/loginHome.js';
 import '../imports/ui/home.js';
 import '../imports/ui/register.js';
 import '../imports/ui/dashboard.js';
