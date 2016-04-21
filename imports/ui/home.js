@@ -27,12 +27,23 @@ Template.home.helpers({
     return check;
     // var user = Meteor.userId();
     // return PublicProfileDB.findOne({profileId: user});
+  },
+  professionalCheck: function () {
+    var user = Meteor.userId();
+    var checkObject = PublicProfileDB.findOne({profileId: user});
+    var viewing = window.location.pathname;
+    viewing = viewing.replace('/users/', '');
+    viewingObject = PublicProfileDB.findOne({email: viewing});
+    viewingUser = viewingObject.profileId;
+    var pro = false;
+    if(checkObject.profileId === viewingObject.profileId) {
+      pro = true;
+    }
+    if (checkObject.professional === true) {
+      pro = true;
+    }
+    return pro;
   }
-  // viewer: function () {
-  //   var user = Meteor.userId();
-  //   viewerObject = PublicProfileDB.findOne({profileId: user});
-  //   return viewerObject.profileId;
-  // }
 });
 
 Template.home.events({
